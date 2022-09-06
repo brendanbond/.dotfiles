@@ -2,6 +2,8 @@
 
 echo "Setting up your Mac..."
 
+DOTFILES=$HOME/.dotfiles
+
 # Check for Oh My Zsh and install if we don't have it
 if test ! $(which omz); then
   /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/HEAD/tools/install.sh)"
@@ -24,7 +26,7 @@ brew update
 
 # Install all our dependencies with bundle (See Brewfile)
 brew tap homebrew/bundle
-brew bundle --file $DOTFILES/Brewfile
+brew bundle --verbose --file $DOTFILES/Brewfile
 
 # Set default MySQL root password and auth type
 mysql -u root -e "ALTER USER root@localhost IDENTIFIED WITH mysql_native_password BY 'Sanford1'; FLUSH PRIVILEGES;"
@@ -33,7 +35,7 @@ mysql -u root -e "ALTER USER root@localhost IDENTIFIED WITH mysql_native_passwor
 mkdir $HOME/Projects
 
 # Clone Github repositories
-$DOTFILES/clone.sh
+$DOTFILES/.clone.sh
 
 # Set macOS preferences - we will run this last because this will reload the shell
 source $DOTFILES/.macos
