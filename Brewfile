@@ -3,6 +3,7 @@ tap 'homebrew/cask'
 tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
 tap 'homebrew/bundle'
+tap 'mongodb/brew'
 
 # Binaries
 brew 'bash' # Latest Bash version
@@ -26,7 +27,7 @@ brew 'nginx'
 brew 'node'
 brew 'redis'
 brew 'yarn'
-brew 'mongodb-community'
+brew 'mongodb-community@6.0'
 
 # Apps
 cask 'bitwarden'
